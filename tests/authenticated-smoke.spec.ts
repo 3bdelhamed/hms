@@ -1,12 +1,11 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures/test-fixtures';
 
 // Uses the saved auth state from the setup project (storageState).
 // No login steps here on purpose.
-test('authenticated smoke: dashboard loads without login', async ({ page }) => {
-  await page.goto('/');
+test('authenticated smoke: dashboard loads without login', async ({ dashboardPage, loginPage }) => {
+  await dashboardPage.goto();
+  await dashboardPage.expectLoaded();
 
-  // Dashboard heading exists only after login.
-  await expect(page.getByRole('heading', { name: 'لوحة التحكم' })).toBeVisible();
   // Login form must be gone.
-  await expect(page.locator('#login-password')).toHaveCount(0);
+  await expect(loginPage.passwordField).toHaveCount(0);
 });
