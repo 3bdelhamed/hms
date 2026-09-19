@@ -4,7 +4,7 @@ import { LoginPage } from '../pages/LoginPage';
 // Smoke verifies the logged-out login page: ignore the saved auth state.
 test.use({ storageState: { cookies: [], origins: [] } });
 
-test('smoke: application loads and shows login', async ({ page }) => {
+test('smoke: application loads and shows login @smoke', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const response = await loginPage.goto();
 
