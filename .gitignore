@@ -1,0 +1,12 @@
+# Env files (real values stay local)
+.env
+.env.local
+
+# Dependencies
+node_modules/
+
+# Playwright output
+test-results/
+playwright-report/
+blob-report/
+playwright/.auth/
